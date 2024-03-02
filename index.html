@@ -5,7 +5,7 @@
   <title>IPTV WEB | samsfx</title>
   <link rel="icon" href="/static/samvpn.ico" type="image/x-icon">
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="referrer" content="no-referrer" />
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.ui.min.js'
     crossorigin='anonymous'></script>
@@ -70,29 +70,15 @@
             maxHeight: 1080
           }
         },
-      });
-      player.addEventListener('error', onPlayerErrorEvent);
+      }); player.addEventListener('error', onPlayerErrorEvent);
       controls.addEventListener('error', onUIErrorEvent);
       try {
-        // Fetch the manifestUri without including the Referer header
-        const response = await fetch(manifestUri, {
-          headers: {
-            'Referer': null
-          }
-        });
-        if (!response.ok) {
-          throw new Error('Failed to fetch manifest: ' + response.status);
-        }
-        // Parse the response as text
-        const manifestText = await response.text();
-        // Load the manifest text directly into the player
-        await player.load(new shaka.Player().loadManifest(manifestText));
+        await player.load(manifestUri);
         console.log('The video has now been loaded!');
       } catch (error) {
         onPlayerError(error);
       }
     }
-
 
     function onPlayerErrorEvent(errorEvent) {
       onPlayerError(event.detail);
