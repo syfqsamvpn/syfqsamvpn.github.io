@@ -3,8 +3,7 @@
 
 <head>
   <title>IPTV WEB | samsfx</title>
-  <meta charset="UTF-8">
-  <link rel="icon" href="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico" type="image/x-icon">
+  <link rel="icon" href="/static/samvpn.ico" type="image/x-icon">
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -35,7 +34,7 @@
 <body>
   <div class="youtube-theme" data-shaka-player-container
     style='position:absolute;z-index: -1;top: 0;left: 0;width: 100%; height: 100%;object-fit: cover;'><video autoplay
-      data-shaka-player poster="https://github.com/syfqsamvpn/iptv/raw/main/logo/samflix_logo.png" id='video'
+      data-shaka-player poster="https://player.syfqsamvpn.repl.co/static/samvpn.jpg" id='video'
       style='width:100%;height:100%;'></video>
   </div>
   <script>
@@ -75,10 +74,16 @@
       player.addEventListener('error', onPlayerErrorEvent);
       controls.addEventListener('error', onUIErrorEvent);
       try {
-        const fetchOptions = {
-          referrerPolicy: 'no-referrer'
-        };
-        await player.load(manifestUri, fetchOptions);
+        // Fetch the manifestUri without including the Referer header
+        const response = await fetch(manifestUri, {
+          headers: {
+            'Referer': null
+          }
+        });
+        // Parse the response as text
+        const manifestText = await response.text();
+        // Load the manifest text directly into the player
+        await player.load(new shaka.Player().loadManifest(manifestText));
         console.log('The video has now been loaded!');
       } catch (error) {
         onPlayerError(error);
