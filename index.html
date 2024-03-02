@@ -80,6 +80,9 @@
             'Referer': null
           }
         });
+        if (!response.ok) {
+          throw new Error('Failed to fetch manifest: ' + response.status);
+        }
         // Parse the response as text
         const manifestText = await response.text();
         // Load the manifest text directly into the player
