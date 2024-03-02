@@ -3,8 +3,7 @@
 
 <head>
   <title>IPTV WEB | samsfx</title>
-  <meta charset="UTF-8">
-  <link rel="icon" href="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico" type="image/x-icon">
+  <link rel="icon" href="/static/samvpn.ico" type="image/x-icon">
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <meta name="referrer" content="no-referrer" />
 
@@ -40,64 +39,68 @@
   </div>
   <script>
 
-    const params = new URLSearchParams(window.location.search);
-    const manifestUri = decodeURIComponent(params.get('url'));
-    const keyId = decodeURIComponent(params.get('keyid') || '').replace(/\s/g, '+');
-    const key = decodeURIComponent(params.get('key') || '').replace(/\s/g, '+');
-
-    const clearKeys = {
-      [keyId || '']: key || ''
-    };
-
-    async function init() {
-      const video = document.getElementById('video');
-      const ui = video['ui'];
-      const controls = ui.getControls();
-      const player = controls.getPlayer();
-      window.player = player;
-      window.ui = ui;
-      player.setTextTrackVisibility(true);
-      player.configure({
-        drm: {
-          "clearKeys": clearKeys,
-        },
-        preferredTextLanguage: 'ms',
-
-        abr: {
-          defaultBandwidthEstimate: 7578,
-          enabled: true,
-          restrictions: {
-            minHeight: 359,
-            maxHeight: 1080
-          }
-        },
-      }); player.addEventListener('error', onPlayerErrorEvent);
-      controls.addEventListener('error', onUIErrorEvent);
+    async function fetchDataAndInitializePlayer() {
       try {
+        const params = new URLSearchParams(window.location.search);
+        const category_id = decodeURIComponent(params.get('category_id'));
+        const channel_id = decodeURIComponent(params.get('channel_id'));
+        const response = await fetch(`https://ott.samhub.my.id/samflix_data/${category_id}/${channel_id}`);
+        const data = await response.json();
+
+        // Extracting manifestUri, keyId, and key from the response data
+        const manifestUri = data.link;
+        const keyId = data.keyID;
+        const key = data.keyValue;
+
+        const video = document.getElementById('video');
+        const ui = video['ui'];
+        const controls = ui.getControls();
+        const player = controls.getPlayer();
+        window.player = player;
+        window.ui = ui;
+        player.setTextTrackVisibility(true);
+        player.configure({
+          drm: {
+            "clearKeys": {
+              [keyId || '']: key || ''
+            },
+          },
+          preferredTextLanguage: 'ms',
+
+          abr: {
+            defaultBandwidthEstimate: 7578,
+            enabled: true,
+            restrictions: {
+              minHeight: 359,
+              maxHeight: 1080
+            }
+          },
+        });
+        player.addEventListener('error', onPlayerErrorEvent);
+        controls.addEventListener('error', onUIErrorEvent);
+
         await player.load(manifestUri);
         console.log('The video has now been loaded!');
       } catch (error) {
-        onPlayerError(error);
+        console.error('Error occurred while fetching data or initializing player:', error);
       }
     }
 
     function onPlayerErrorEvent(errorEvent) {
-      onPlayerError(event.detail);
-    }
-
-    function onPlayerError(error) {
-      console.error('Error code', error.code, 'object', error);
+      console.error('Player error:', errorEvent.detail);
     }
 
     function onUIErrorEvent(errorEvent) {
-      onPlayerError(event.detail);
+      console.error('UI error:', errorEvent.detail);
     }
 
-    function initFailed(errorEvent) {
+    function initFailed() {
       console.error('Unable to load the UI library!');
     }
-    document.addEventListener('shaka-ui-loaded', init);
+
+    document.addEventListener('shaka-ui-loaded', fetchDataAndInitializePlayer);
     document.addEventListener('shaka-ui-load-failed', initFailed);
+
 
     function openShopeeTab() {
       const shopeeURL = "https://shopee.com.my/samsfx.tech";
