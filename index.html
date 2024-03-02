@@ -71,15 +71,20 @@
             maxHeight: 1080
           }
         },
-      }); player.addEventListener('error', onPlayerErrorEvent);
+      });
+      player.addEventListener('error', onPlayerErrorEvent);
       controls.addEventListener('error', onUIErrorEvent);
       try {
-        await player.load(manifestUri);
+        const fetchOptions = {
+          referrerPolicy: 'no-referrer'
+        };
+        await player.load(manifestUri, fetchOptions);
         console.log('The video has now been loaded!');
       } catch (error) {
         onPlayerError(error);
       }
     }
+
 
     function onPlayerErrorEvent(errorEvent) {
       onPlayerError(event.detail);
