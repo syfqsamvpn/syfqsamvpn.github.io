@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="5;url=loading.html"> <!-- Redirect after 5 seconds -->
-<title>Redirecting...</title>
-<script>
-    window.onload = function() {
-        // Get the URL parameter
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const inputUrl = urlParams.get('url');
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5;url=loading.html"> <!-- Redirect after 5 seconds -->
+    <title>Redirecting...</title>
+    <script>
+        window.onload = function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const inputUrl = urlParams.get('url');
 
-        if (inputUrl) {
-            // Fetch the text file
-            fetch(inputUrl)
-                .then(response => response.text())
-                .then(data => {
-                    // Extract the final URL from the text file
-                    const finalUrl = data.trim();
-
-                    // Redirect to the final URL
-                    window.location.replace(finalUrl);
-                })
-                .catch(error => {
-                    console.error('Error fetching the text file:', error);
-                    // Redirect to an error page
-                    window.location.replace('error.html');
-                });
-        } else {
-            console.error('Input URL parameter is missing.');
-            // Redirect to an error page
-            window.location.replace('error.html');
-        }
-    };
-</script>
+            if (inputUrl) {
+                fetch(inputUrl)
+                    .then(response => response.text())
+                    .then(data => {
+                        const finalUrl = data.trim();
+                        window.location.replace(finalUrl);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching the text file:', error);
+                        window.location.replace('error.html');
+                    });
+            } else {
+                console.error('Input URL parameter is missing.');
+                window.location.replace('error.html');
+            }
+        };
+    </script>
 </head>
+
 <body>
-    <p>Redirecting to the final link...</p>
 </body>
+
 </html>
