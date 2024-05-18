@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="5;url=loading.html"> <!-- Redirect after 5 seconds -->
-    <title>Redirecting...</title>
-    <script>
-        window.onload = function () {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const inputUrl = urlParams.get('url');
+<meta charset="UTF-8">
+<title>Redirect</title>
+<script>
+function redirectToFinalURL() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const inputUrl = urlParams.get('url');
 
-            if (inputUrl) {
-                fetch(inputUrl)
-                    .then(response => response.text())
-                    .then(data => {
-                        const finalUrl = data.trim();
-                        window.location.replace(finalUrl);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching the text file:', error);
-                        window.location.replace('error.html');
-                    });
-            } else {
-                console.error('Input URL parameter is missing.');
-                window.location.replace('error.html');
-            }
-        };
-    </script>
+    if (inputUrl) {
+        try {
+            fetch(inputUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch the text file');
+                    }
+                    return response.text();
+                })
+                .then(finalUrl => {
+                    window.location.href = finalUrl.trim();
+                })
+                .catch(error => {
+                    console.error('Error:', error.message);
+                    document.getElementById('errorMessage').innerText = 'Error: ' + error.message;
+                });
+        } catch (error) {
+            console.error('Error:', error.message);
+            document.getElementById('errorMessage').innerText = 'Error: ' + error.message;
+        }
+    } else {
+        document.getElementById('errorMessage').innerText = 'Error: Input URL is missing';
+    }
+}
+</script>
 </head>
-
 <body>
+    <h1>Redirecting...</h1>
+    <p>This page will automatically redirect to the final URL.</p>
+    <p id="errorMessage" style="color: red;"></p>
+    <script>
+        redirectToFinalURL();
+    </script>
 </body>
-
 </html>
