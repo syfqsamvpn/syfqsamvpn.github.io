@@ -103,13 +103,6 @@
         layoutMode: 'fitRows'
     });
 
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('filter-active');
-        $(this).addClass('filter-active');
-
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
-
     // Clients carousel
     $(".clients-carousel").owlCarousel({
         autoplay: true,
@@ -142,3 +135,22 @@
 
 })(jQuery);
 
+$(document).ready(function() {
+    // Initialize Isotope
+    var portfolioIsotope = $('.portfolio-container').isotope({
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows'
+    });
+
+    // Default filter on page load
+    var defaultFilter = '.malaysia';
+    $('#portfolio-flters li[data-filter="' + defaultFilter + '"]').addClass('filter-active');
+    portfolioIsotope.isotope({ filter: defaultFilter });
+
+    // Click event for filters
+    $('#portfolio-flters li').on('click', function() {
+        $("#portfolio-flters li").removeClass('filter-active');
+        $(this).addClass('filter-active');
+        portfolioIsotope.isotope({ filter: $(this).data('filter') });
+    });
+});
