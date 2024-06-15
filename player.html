@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 
@@ -41,9 +42,9 @@
     <script>
 
         const params = new URLSearchParams(window.location.search);
-        const manifestUri = decodeURIComponent(params.get('link'));
-        const keyId = decodeURIComponent(params.get('keyid'));
-        const key = decodeURIComponent(params.get('key'));
+        const manifestUri = "https://vod-playback.sooka.my/edash/p/3089633/sp/308963300/serveFlavor/entryId/1_llsi7qba/v/1/ev/10/flavorId/1_,m64hc27u,vtrswqge,on7epqi4,md1o4nqa,ebs17627,fcl7pu7p,uuook351,c6q246s5,csb4kjv4,/forceproxy/true/name/a.mp4.urlset/manifest.mpd";
+        const keyId = "ac3d6bdf5aeef71b49b270e96bd6c404";
+        const key = "65a017db9ca10eb5c6c956640f49b599";
 
         const clearKeys = {
             [keyId || '']: key || ''
