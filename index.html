@@ -1,117 +1,2698 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>IPTV WEB | samsfx</title>
-  <meta charset="UTF-8">
-  <link rel="icon" href="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico" type="image/x-icon">
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <meta name="referrer" content="no-referrer" />
+    <meta charset="utf-8">
+    <title>SAMFLIX | Ott Provider Anda</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ottmurah, ottrahmah, ottlifetime, lifetime, percuma, ottsmooth, ottservice, perkhidmatanott, tontonanott, ottstreaming, streamingott, penstrimanott, ottsubscription, langgananott, moviesshows, filemdanshow, filmdanrancangan, latestmovies, moviebaru, filemterbaru, trendingshows, showterkini, rancanganterkini, moviemarathon, maratonfilem, hdstreaming, penstrimanhd, smoothstreaming, penstrimanlancar, highqualitycontent, kandunganbermututinggi, bufferfree, bebaspenimbalan, watchanywhere, tontonsebarangtempat, watchanytime, tontonbila-bila, ondemandoffline, ondemandoffline, affordableott, ottmampumilik, freeott, ottpercuma, ottdeals, tawaranott, discountsott, diskaunott, ott navigator, ott player, ott malaysia, ott indonesia, ott brunei" name="keywords">
+    <meta content="Penyedia Ott Malaysia seperti ria, warna, citra, prima , etc. Stream tanpa lag dengan internet serendah 3Mbps" name="description">
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.ui.min.js'
-    crossorigin='anonymous'></script>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/controls.min.css'
-    crossorigin='anonymous' />
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet">
-  <center><b>
-      <p style="color:white; opacity:0.27;">SAMFLIX
-    </b></p>
-  </center>
-  <script src="https://github.com/videojs/mux.js/releases/download/v6.3.0/mux.js"></script>
-  <style>
-    div a img {
-      visibility: hidden;
-    }
+    <!-- Favicons -->
+    <link href="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/iptv.ico" rel="icon">
 
-    body {
-      margin: 0;
-      background-color: black;
-    }
-  </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300|Nunito:400,700&display=swap"
+        rel="stylesheet">
 
+    <!-- Bootstrap CSS File -->
+    <link href="https://syfqsamvpn.github.io/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="https://syfqsamvpn.github.io/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://syfqsamvpn.github.io/vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://syfqsamvpn.github.io/vendor/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link href="https://syfqsamvpn.github.io/samflix/styles.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="youtube-theme" data-shaka-player-container
-    style='position:absolute;z-index: -1;top: 0;left: 0;width: 100%; height: 100%;object-fit: cover;'><video autoplay
-      data-shaka-player poster="https://github.com/syfqsamvpn/iptv/raw/main/logo/samflix_logo.png" id='video'
-      style='width:100%;height:100%;'></video>
-  </div>
-  <script>
+    <!-- Header Section Start -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="logo pull-left">
+                <h1><a href="#">SAMFLIX</a></h1>
+                <!-- <a href="#"><img src="img/logo.png" alt="" title="" /></a>-->
+            </div>
 
-    async function fetchDataAndInitializePlayer() {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const category_id = decodeURIComponent(params.get('category_id'));
-        const channel_id = decodeURIComponent(params.get('channel_id'));
-        const response = await fetch(`https://player.samhub.my.id/samflix_data/${category_id}/${channel_id}`);
-        const data = await response.json();
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="#">SAMFLIX</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Package</a></li>
+                    <li><a href="#reseller-info">Reseller</a></li>
+                    <li><a href="#support-device">Support Device</a></li>
+                    <li><a href="#all-channel">Premium Channel</a></li>
+                    <li class="menu-has-children"><a href="#">Free Channel <i class="dicon ion-md-arrow-dropdown"></i></a>
+                        <ul>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=TV3">TV3</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Astro%20Arena">Arena</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Astro%20Arena%202">Arena 2</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Astro%20Oasis">Oasis</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Astro%20Aura">Aura</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Astro%20Rania">Rania</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Astro%20Awani">Awani</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=AXN">AXN</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=HBO">HBO</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=tvN">tvN</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=tvN%20Movies">tvN Movies</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=HITS%20Movies">HITS Movies</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=BOO">BOO</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Cinemax">Cinemax</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Astro%20Ceria">Ceria</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Cartoon%20Network">Cartoon Network</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=Nickelodeon">Nickelodeon</a></li>
+                            <li><a href="https://syfqsamvpn.github.io/?category_id=Malaysia&channel_id=NickJr">NickJr</a></li>  
+                        </ul>
+                    </li>
+                    <li><a href="https://t.me/+_bRrHIycqBxjNGZl">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header Section End -->
 
-        const manifestUri = data.link || "https://raw.githubusercontent.com/syfqsamvpn/iptv/main/m3u8/samflix_detail/samflix_detail.m3u8";
-        const keyId = data.keyID;
-        const key = data.keyValue;
+    <!-- Slider Section Start-->
+    <section class="slider">
+        <div class="slider-container">
+            <div id="carousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
-        const video = document.getElementById('video');
-        const ui = video['ui'];
-        const controls = ui.getControls();
-        const player = controls.getPlayer();
-        window.player = player;
-        window.ui = ui;
-        player.setTextTrackVisibility(true);
-        player.configure({
-          drm: {
-            "clearKeys": {
-              [keyId || '']: key || ''
-            },
-          },
-          preferredTextLanguage: 'ms',
+                <ol class="carousel-indicators"></ol>
 
-          abr: {
-            defaultBandwidthEstimate: 7578,
-            enabled: true,
-            restrictions: {
-              minHeight: 359,
-              maxHeight: 1080
-            }
-          },
-        });
-        player.addEventListener('error', onPlayerErrorEvent);
-        controls.addEventListener('error', onUIErrorEvent);
+                <div class="carousel-inner" role="listbox">
 
-        await player.load(manifestUri);
-        console.log('The video has now been loaded!');
-      } catch (error) {
-        console.error('Error occurred while fetching data or initializing player:', error);
-      }
-    }
+                    <div class="carousel-item active">
+                        <div class="carousel-background"><img
+                                src="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/astro.png" alt="">
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Full Xtrox Channel</h2>
+                                <p>
+                                    Ria, Prima, Warna, Citra, Oasis, Ceria, etc.
+                                </p>
+                                <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn-get-started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
 
-    function onPlayerErrorEvent(errorEvent) {
-      console.error('Player error:', errorEvent.detail);
-    }
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img
+                                src="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/yt_live.png" alt="">
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Youtube Live</h2>
+                                <p>
+                                    Cocomelon, Didi & Friends, Upin Ipin, UAI, etc.
+                                </p>
+                                <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn-get-started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
 
-    function onUIErrorEvent(errorEvent) {
-      console.error('UI error:', errorEvent.detail);
-    }
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img
+                                src="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/sukan.png" alt="">
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Full Channel Sports</h2>
+                                <p>
+                                    Arena, SuperSport, Bein Sport, SPOTV, Sony Sport, Sky Sport, etc.
+                                </p>
+                                <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn-get-started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
 
-    function initFailed() {
-      console.error('Unable to load the UI library!');
-    }
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img
+                                src="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/movie.png" alt="">
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>30,000 Movie & Series</h2>
+                                <p>
+                                    Malaysia, Asia, Hollywood, Bollywood, etc.
+                                </p>
+                                <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn-get-started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
 
-    document.addEventListener('shaka-ui-loaded', fetchDataAndInitializePlayer);
-    document.addEventListener('shaka-ui-load-failed', initFailed);
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img
+                                src="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/kartun.png" alt="">
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Kartun</h2>
+                                <p>
+                                    Ceria, Cbeebies, Cartoon Network, Nickelodeon, etc.
+                                </p>
+                                <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn-get-started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img
+                                src="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/korea.png" alt="">
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Korean</h2>
+                                <p>
+                                    Tvn Movies, One HD, Gem, Kbs world, etc.
+                                </p>
+                                <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn-get-started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img
+                                src="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/indo.png" alt="">
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Indonesian</h2>
+                                <p>
+                                    CNBC, Gtv, Indosiar, Metro Globe, Tvone, Trans7, etc.
+                                </p>
+                                <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn-get-started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon ion-md-arrow-back" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon ion-md-arrow-forward" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <!-- Slider Section End-->
+
+    <!-- About Us Section Start-->
+    <section class="about" id="about">
+        <div class="container">
+            <header class="section-header">
+                <h3>About Us</h3>
+                <p>
+                    Kami ialah provider OTT yang berpusat di Malaysia. Kami menyediakan channel-channel Xtrox, Sukan,
+                    Kartoon dan sebagainya.
+                </p>
+            </header>
+
+            <div class="row align-items-center about-row">
+                <div class="col-md-6">
+                    <img src="https://raw.githubusercontent.com/syfqsamvpn/iptv/main/samflix/logo.jpg" alt=""
+                        class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="title"><a href="#">Kelebihan IPTV Kami</a></h2>
+                        <p><b>Kualiti HD & FHD</b>: Nikmati tontonan dengan gambar yang jelas!</p>
+                        <p><b>Pilihan Sarikata</b>: Tukar sarikata kepada Melayu, English, etc!</p>
+                        <p><b>Tanpa Gangguan</b>: Tonton tanpa buffering atau masalah lain!</p>
+                        <p><b>Sokongan Pelanggan 24/7</b>: Kami di sini untuk membantu anda!</p>
+                    <div class="read-more">
+                        <a href="https://t.me/+_bRrHIycqBxjNGZl">Join Group Support</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- About Us Section End -->
+
+    <!--Pricing Section start-->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <header class="section-header">
+                <h3>PACKAGE OTT</h3>
+                <p>
+                    Dibawah ini adalah beberapa pakej langganan OTT yang SAMFLIX sediakan.
+                </p>
+            </header>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="price-content">
+                        <div class="price-plan">
+                            <p class="price-title">RAHMAH</p>
+                            <h2 class="price-amount">15.<span>00</span></h2>
+                            <p class="price-date">Per Month</p>
+                        </div>
+                        <ul class="price-details">
+                            <li><i class="ion-md-checkmark"></i><strong>30</strong> Days</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Full Xtrox</strong>(Ria, Prima, Warna, etc)</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Full Sports Channels</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>30,000</strong> Movies & Series</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Support Group</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>Tutorial A-Z</strong></li>
+                        </ul>
+                        <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn mian-btn price-btn">Buy Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-content features-price">
+                        <div class="price-plan">
+                            <p class="price-title">VIP</p>
+                            <h2 class="price-amount">30.<span>00</span></h2>
+                            <p class="price-date">Per Month</p>
+                        </div>
+                        <ul class="price-details">
+                            <li><i class="ion-md-checkmark"></i><strong>65</strong> Days</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Full Xtrox</strong>(Ria, Prima, Warna, etc)</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Full Sports Channels</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>30,000</strong> Movies & Series</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Support Group</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>Tutorial A-Z</strong></li>
+                        </ul>
+                        <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn mian-btn price-btn features-price-btn">Buy Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-content">
+                        <div class="price-plan">
+                            <p class="price-title">VVIP</p>
+                            <h2 class="price-amount">45.<span>00</span></h2>
+                            <p class="price-date">Per Month</p>
+                        </div>
+                        <ul class="price-details">
+                            <li><i class="ion-md-checkmark"></i><strong>100</strong> Days</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Full Xtrox</strong>(Ria, Prima, Warna, etc)</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Full Sports Channels</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>30,000</strong> Movies & Series</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Support Group</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>Tutorial A-Z</strong></li>
+                        </ul>
+                        <a href="https://t.me/+_bRrHIycqBxjNGZl" class="btn mian-btn price-btn">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Pricing Section End-->
+
+    <!-- Call To Action Start -->
+    <section class="call-to-action" id="reseller-info">
+        <div class="container text-center">
+            <header class="section-header">
+                <h3>Apa Kelebihan Reseller SAMFLIX?</h3>
+                <li>Diskaun Hebat Sehingga 50%!</li>
+                <li>Fungsi Recruit Ejen.</li>
+                <li>Direct Assist Dari Admin.</li>
+            </header>
+            <a class="cta-btn" href="https://t.me/sam_sfx">Daftar Reseller</a>
+        </div>
+    </section>
+    <!-- Call To Action End -->
+
+    <section id="support-device" class="services">
+        <div class="container">
+            <header class="section-header">
+                <h3>Support Device</h3>
+                <p>
+                    Samflix boleh digunakan di semua device yang mengunakan Android OS.
+                </p>
+            </header>
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <i class="ion-logo-android"></i>
+                        <h4><a href="">Android Phone</a></h4>
+                        <p>Semua Smartphone yang mengunakan Android OS.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <i class="ion-logo-android"></i>
+                        <h4><a href="">Android TV/BOX</a></h4>
+                        <p>Semua Certified atau Non Certified Android TV/BOX.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section Start -->
+    <section class="portfolio" id="all-channel">
+        <div class="container">
+
+            <header class="section-header">
+                <h3 class="section-title">Premium Channel</h3>
+                <p>
+                    Dibawah ini adalah antara Channel yang anda dapat jika melanggan pakej <b>SAMFLIX</b>.
+                </p>
+            </header>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul id="portfolio-flters">
+                        <!-- <li data-filter="*" class="filter-active">All</li>-->
+                        <li data-filter=".malaysia" class="filter-active">TV Malaysia</li>
+                        <li data-filter=".xtrox">Xtrox</li>
+                        <li data-filter=".sukan">Sports</li>
+                        <li data-filter=".kartun">Kartun</li>
+                        <li data-filter=".hiburan">Hiburan</li>
+                        <li data-filter=".movie">Movies</li>
+                        <li data-filter=".unifx">Unifx</li>
+                        <li data-filter=".youtube">Youtube Live</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row portfolio-container">
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://www.appcreator24.com/srv/imgs/seccs/9428036_ico.png" class="img-fluid"
+                                alt="Portfolio">
+                            <a href="https://www.appcreator24.com/srv/imgs/seccs/9428036_ico.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="TV1" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>TV1</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://www.appcreator24.com/srv/imgs/seccs/9428037_ico.png" class="img-fluid"
+                                alt="Portfolio">
+                            <a href="https://www.appcreator24.com/srv/imgs/seccs/9428037_ico.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="TV2" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>TV2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/TV3_v1.png" class="img-fluid"
+                                alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/TV3_v1.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="TV3" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>TV3</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://telegra.ph/file/04d73bd40aaf937296d26.png" class="img-fluid"
+                                alt="Portfolio">
+                            <a href="https://telegra.ph/file/04d73bd40aaf937296d26.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="TV6" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>TV6</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/TV_Alhijrah_logo.png"
+                                class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/en/0/0f/TV_Alhijrah_logo.png"
+                                class="link-preview" data-lightbox="portfolio" data-title="TVAlhijrah"
+                                title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>TVAlhijrah</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/429_144.png"
+                                class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/429_144.png"
+                                class="link-preview" data-lightbox="portfolio" data-title="TVS" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>TVS</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://i.ibb.co/x26k8CR/433-144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://i.ibb.co/x26k8CR/433-144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="AwesomeTV" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>AwesomeTV</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/TV_Okey_RTM.png"
+                                class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/7/7f/TV_Okey_RTM.png"
+                                class="link-preview" data-lightbox="portfolio" data-title="OKEY" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>OKEY</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/115_144.png"
+                                class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/115_144.png"
+                                class="link-preview" data-lightbox="portfolio" data-title="8TV" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>8TV</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/48_144.png"
+                                class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/48_144.png"
+                                class="link-preview" data-lightbox="portfolio" data-title="TV9" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>TV9</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://marginfull.github.io/logo/dramahebat.png" class="img-fluid"
+                                alt="Portfolio">
+                            <a href="https://marginfull.github.io/logo/dramahebat.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="DramaHebat" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>DramaHebat</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://marginfull.github.io/logo/filemmantap.png" class="img-fluid"
+                                alt="Portfolio">
+                            <a href="https://marginfull.github.io/logo/filemmantap.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="FilemMantap" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>FilemMantap</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://marginfull.github.io/logo/lawaksentral.png" class="img-fluid"
+                                alt="Portfolio">
+                            <a href="https://marginfull.github.io/logo/lawaksentral.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="LawakSentral" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>LawakSentral</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item malaysia">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/93_144.png"
+                                class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/93_144.png"
+                                class="link-preview" data-lightbox="portfolio" data-title="147" title="Preview"><i
+                                    class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+
+                        <div class="portfolio-info">
+                            <h4>147</h4>
+                        </div>
+                    </div>
+                </div>
 
 
-    function openShopeeTab() {
-      const shopeeURL = "https://shopee.com.my/samsfx.tech";
-      window.open(shopeeURL, '_blank');
-    }
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/TV3_v1.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/TV3_v1.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="TV3" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>TV3</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Astro_Ria.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/5/59/Astro_Ria.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Ria" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Ria</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Astro_Prima.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/d/df/Astro_Prima.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Prima" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Prima</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Astro_Oasis.png?20201217154550" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/f/f5/Astro_Oasis.png?20201217154550" class="link-preview"
+                                data-lightbox="portfolio" data-title="Oasis" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Oasis</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://resizer-acm.eco.astro.com.my/tr:w-800/http://linear-poster.astro.com.my/prod/poster/Heroes_IVP_LAND_1280x720.jpg" class="img-fluid" alt="Portfolio">
+                            <a href="https://resizer-acm.eco.astro.com.my/tr:w-800/http://linear-poster.astro.com.my/prod/poster/Heroes_IVP_LAND_1280x720.jpg" class="link-preview"
+                                data-lightbox="portfolio" data-title="HEROES" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>HEROES</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Astro_Warna_NEW.png?20230806103453" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/c/c2/Astro_Warna_NEW.png?20230806103453" class="link-preview"
+                                data-lightbox="portfolio" data-title="Warna" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Warna</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Astro_Citra.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/9/94/Astro_Citra.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Citra" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Citra</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/400_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/400_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Aura" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Aura</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Astro_Premier.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/2/2e/Astro_Premier.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Premier" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Premier</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://user-images.githubusercontent.com/85995579/128458263-2fdbda45-1e3a-4480-9933-04e301790472.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://user-images.githubusercontent.com/85995579/128458263-2fdbda45-1e3a-4480-9933-04e301790472.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="AEC" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>AEC</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/Astro_Hua_Hee_Dai_v1.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/Astro_Hua_Hee_Dai_v1.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="HuaHeeDai" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>HuaHeeDai</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/en/c/cb/Astro_AOD.jpeg" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/en/c/cb/Astro_AOD.jpeg" class="link-preview"
+                                data-lightbox="portfolio" data-title="AOD" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>AOD</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/167_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/167_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="VinmeenHD" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>VinmeenHD</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/K-Plus_v1.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/K-Plus_v1.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="396.astro" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>396.astro</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Astro_Awani.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/f/ff/Astro_Awani.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Awani" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Awani</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bernama_TV.png/800px-Bernama_TV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bernama_TV.png/800px-Bernama_TV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="BernamaTV" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>BernamaTV</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://1000logos.net/wp-content/uploads/2020/08/Al-Jazeera-Logo.jpg" class="img-fluid" alt="Portfolio">
+                            <a href="https://1000logos.net/wp-content/uploads/2020/08/Al-Jazeera-Logo.jpg" class="link-preview"
+                                data-lightbox="portfolio" data-title="AlJazeera" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>AlJazeera</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/177_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/177_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="BoxOfficeThangathirai" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>BoxOfficeThangathirai</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/BOO_v1.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/BOO_v1.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="BOO" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>BOO</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/ShowcaseMovies.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/ShowcaseMovies.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="ShowcaseMovies" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>ShowcaseMovies</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/Global-Trekker_190x80_TV-Guide.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/Global-Trekker_190x80_TV-Guide.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="559.astro" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>559.astro</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/Love-Nature_190x80_TV-Guide.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/Love-Nature_190x80_TV-Guide.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="LoveNature" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>LoveNature</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/Love-Nature4K_190x80_TV-Guide.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/Love-Nature4K_190x80_TV-Guide.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Lovenature4k" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Lovenature4k</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Astro_Rania_NEW.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/1/12/Astro_Rania_NEW.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Rania" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Rania</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Astro_TTV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/e/ec/Astro_TTV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="TutorTV" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>TutorTV</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Astro_Ceria.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/8/85/Astro_Ceria.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Ceria" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Ceria</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/MoonbugKids.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/MoonbugKids.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="MoonbugKids" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>MoonbugKids</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Astro_Arena.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/7/72/Astro_Arena.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Arena" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Arena</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Astro_Arena_2.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/6/63/Astro_Arena_2.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Arena2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Arena2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/71_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/71_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="SupersportUHD" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SupersportUHD</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Astro_ASSP4.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/c/c0/Astro_ASSP4.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Supersport4" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Supersport4</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/SPOTV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/SPOTV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="SPOTV" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SPOTV</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/SPOTV2.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/SPOTV2.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="SPOTV2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SPOTV2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/beIN_Sports_Rugby_2023.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/beIN_Sports_Rugby_2023.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="beINSportsRugby" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>beINSportsRugby</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Cricket" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Cricket</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Astro_Arena_Bola.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/5/55/Astro_Arena_Bola.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="ArenaBola" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>ArenaBola</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Astro_Arena_Bola_2.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/1/17/Astro_Arena_Bola_2.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="ArenaBola2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>ArenaBola2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/154_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/154_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Supersport" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Supersport</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/138_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/138_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Supersport2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Supersport2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item xtrox">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/164_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/164_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Supersport3" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Supersport3</h4>
+                        </div>
+                    </div>
+                </div>         
 
-    openShopeeTab();
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Astro_Arena.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/7/72/Astro_Arena.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Arena" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Arena</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Astro_Arena.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/7/72/Astro_Arena.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Arena" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Arena</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Astro_Arena_2.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/6/63/Astro_Arena_2.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Arena2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Arena2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/71_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/71_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="SupersportUHD" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SupersportUHD</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Astro_ASSP4.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/c/c0/Astro_ASSP4.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Supersport4" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Supersport4</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/SPOTV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/SPOTV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="SPOTV" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SPOTV</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://iili.io/JyUggIt.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://iili.io/JyUggIt.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="SPOTVStadia" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SPOTVStadia</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/SPOTV2.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/SPOTV2.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="SPOTV2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SPOTV2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://user-images.githubusercontent.com/95635242/277778086-b7b86d2f-0996-4608-9e1d-d45cc09b29d1.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://user-images.githubusercontent.com/95635242/277778086-b7b86d2f-0996-4608-9e1d-d45cc09b29d1.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="W-Sport" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>W-Sport</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Logo_bein_sports_2.png/1200px-Logo_bein_sports_2.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Logo_bein_sports_2.png/1200px-Logo_bein_sports_2.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="beINSports2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>beINSports2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/236_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/236_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="beINSports" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>beINSports</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Logo_bein_sports_3.png/1200px-Logo_bein_sports_3.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Logo_bein_sports_3.png/1200px-Logo_bein_sports_3.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="beINSports3" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>beINSports3</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/beIN_Sports_Rugby_2023.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/beIN_Sports_Rugby_2023.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="beINSportsRugby" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>beINSportsRugby</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://i.postimg.cc/Hk9h8WsS/Eurosport-White.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://i.postimg.cc/Hk9h8WsS/Eurosport-White.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Eurosport" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Eurosport</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://i.postimg.cc/wxDcjfB2/WWENetwork-White.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://i.postimg.cc/wxDcjfB2/WWENetwork-White.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="WWENetwork" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>WWENetwork</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/189_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/189_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="GolfChannel" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>GolfChannel</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Premier_Sports_Cup_Large_Landscape_Identity_Positive_on_Black.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/4/43/Premier_Sports_Cup_Large_Landscape_Identity_Positive_on_Black.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="PremierSports" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>PremierSports</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Cricket" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Cricket</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://static.wikia.nocookie.net/logopedia/images/b/b2/Sukan_RTM_1_April.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://static.wikia.nocookie.net/logopedia/images/b/b2/Sukan_RTM_1_April.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="TVSUKAN" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>TVSUKAN</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://playtv.unifi.com.my:7041/CPS/images/universal/film/logo/202304/20230418/202304180833546499vy.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://playtv.unifi.com.my:7041/CPS/images/universal/film/logo/202304/20230418/202304180833546499vy.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="701.unifi" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>701.unifi</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://i.ibb.co/PN5t3qy/skysports-logo-social.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://i.ibb.co/PN5t3qy/skysports-logo-social.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="SkySportsArena.uk" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SkySportsArena.uk</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Astro_Arena_Bola.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/5/55/Astro_Arena_Bola.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="ArenaBola" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>ArenaBola</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Astro_Arena_Bola_2.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/1/17/Astro_Arena_Bola_2.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="ArenaBola2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>ArenaBola2</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/154_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/154_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Supersport" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Supersport</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item sukan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/138_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/138_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Supersport2" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Supersport2</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Astro_Ceria.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/8/85/Astro_Ceria.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Ceria" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Ceria</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://poster.starhubgo.com/Linear_channels2/316_1920x1080_HTV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://poster.starhubgo.com/Linear_channels2/316_1920x1080_HTV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="CartoonNetwork" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>CartoonNetwork</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/370_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/370_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Nickelodeon" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Nickelodeon</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/392_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/392_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="NickJr" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>NickJr</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/MoonbugKids.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/MoonbugKids.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="MoonbugKids" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>MoonbugKids</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.googleusercontent.com/-CFTJHU7fEWb7BYEb6Jh9gm1EpetvVGQqtof0Rbh-VQRIznYYKJxCaqv_9HeBcmJmIsp2vOO9JU=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.googleusercontent.com/-CFTJHU7fEWb7BYEb6Jh9gm1EpetvVGQqtof0Rbh-VQRIznYYKJxCaqv_9HeBcmJmIsp2vOO9JU=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="avatar" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>avatar</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/OvuFGB37aZwh36a2gyM1BFtYo1rZTgRRt7iyIbgL-0bHlJvLv4DymrtCAyNY3kwPHaACkaIVIQ=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/OvuFGB37aZwh36a2gyM1BFtYo1rZTgRRt7iyIbgL-0bHlJvLv4DymrtCAyNY3kwPHaACkaIVIQ=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="pjmask" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>pjmask</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/nVEgcnbTGngVxzKnJOr-T1QKJJPQW_1ZdCkNyrxHohaF2VzYpfZggE9HuLVIHT4wMMSZjJumZQ=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/nVEgcnbTGngVxzKnJOr-T1QKJJPQW_1ZdCkNyrxHohaF2VzYpfZggE9HuLVIHT4wMMSZjJumZQ=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="disneyxd" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>disneyxd</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/e-hRjX8JurHebJekLnYwYSGnsAS_fgoIUtVMBnEZiGYLwfudPFb40eIiwi1_XkH0ty_wOjoFEg=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/e-hRjX8JurHebJekLnYwYSGnsAS_fgoIUtVMBnEZiGYLwfudPFb40eIiwi1_XkH0ty_wOjoFEg=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="nickelodeonid" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>nickelodeonid</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/ytc/AIdro_kTK_oX3HnSvlfdmr5TR3-R0whAnOYJwyV2tQ6C3fyGYrM=s176-c-k-c0x00ffffff-no-rj-mo" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/ytc/AIdro_kTK_oX3HnSvlfdmr5TR3-R0whAnOYJwyV2tQ6C3fyGYrM=s176-c-k-c0x00ffffff-no-rj-mo" class="link-preview"
+                                data-lightbox="portfolio" data-title="cocomelon" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>cocomelon</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/Lh4q1pypV5I20bHfg3fS65xhl5gP1Rr9J7GLGR18uWr8zpTcsSECT7_iS5ZYXDv-A4h3-8BZWA=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/Lh4q1pypV5I20bHfg3fS65xhl5gP1Rr9J7GLGR18uWr8zpTcsSECT7_iS5ZYXDv-A4h3-8BZWA=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="beepbeep" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>beepbeep</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/2f1RU8ogcIDHFAe6UkIKCl-nQNOgLoNz0bAzBrFpfhAj2C3CVcFU3MRHrIKaqYmHeqLqdFeyxLg=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/2f1RU8ogcIDHFAe6UkIKCl-nQNOgLoNz0bAzBrFpfhAj2C3CVcFU3MRHrIKaqYmHeqLqdFeyxLg=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="booba" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>booba</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/UcTclRY5rATb4jiyXMLfwVsTDCLSgdETDM6Ebgsj3NKULRMlntJ7mnX43f8HixdSJhmqHSRHfg=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/UcTclRY5rATb4jiyXMLfwVsTDCLSgdETDM6Ebgsj3NKULRMlntJ7mnX43f8HixdSJhmqHSRHfg=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="disneychannel" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>disneychannel</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/jRZlyrtMKB2gM6400At0jxpXj_-9js4BrSspENQSkXGZc8gqgw6_81UDRoKql8-uCHU-G6o64Q=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/jRZlyrtMKB2gM6400At0jxpXj_-9js4BrSspENQSkXGZc8gqgw6_81UDRoKql8-uCHU-G6o64Q=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="didinfriend" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>didinfriend</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/_h0LruFUfluRLAx1VtPbKZ4AfTnm7TkTFMZIuR83dKpnRcOCP8tkw8KIJaHfaj2yKgPffuLu=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/_h0LruFUfluRLAx1VtPbKZ4AfTnm7TkTFMZIuR83dKpnRcOCP8tkw8KIJaHfaj2yKgPffuLu=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="disneyjunior" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>disneyjunior</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/mspho71WrC770mfs4jl16tShx63y1AA6VEBKjkRlf8NCnPssdvTQhYPoQjDDmjCvqUPhWGEkH2A=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/mspho71WrC770mfs4jl16tShx63y1AA6VEBKjkRlf8NCnPssdvTQhYPoQjDDmjCvqUPhWGEkH2A=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="PowerRangersOfficial" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>PowerRangersOfficial</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/god5iM4dDWKWNPcHkhbiayYQCqKe32mUvVkLK6tRnxNXqT5onKJlwmYMb2ZkWiGOPvYIyV4hvA=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/god5iM4dDWKWNPcHkhbiayYQCqKe32mUvVkLK6tRnxNXqT5onKJlwmYMb2ZkWiGOPvYIyV4hvA=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="PeppaPigAsia" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>PeppaPigAsia</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item kartun">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/eY2_hVi5ltfgsCZi8dgYQSatyMTkZMPTjgJ8IMPd3V0n7G1p7Gw5nFLnND9_N43c-bskykx4vw=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/eY2_hVi5ltfgsCZi8dgYQSatyMTkZMPTjgJ8IMPd3V0n7G1p7Gw5nFLnND9_N43c-bskykx4vw=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="lescopaque" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>lescopaque</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://poster.starhubgo.com/Linear_channels2/511_1920x1080_HTV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://poster.starhubgo.com/Linear_channels2/511_1920x1080_HTV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="AXN" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>AXN</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/447_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/447_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="Lifetime" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Lifetime</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://poster.starhubgo.com/Linear_channels2/519_1920x1080_HTV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://poster.starhubgo.com/Linear_channels2/519_1920x1080_HTV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="HITS" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>HITS</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://api.discovery.com/v1/images/558c1c396b66d1023309e791?aspectRatio=1x1&width=192&key=3020a40c2356a645b4b4" class="img-fluid" alt="Portfolio">
+                            <a href="https://api.discovery.com/v1/images/558c1c396b66d1023309e791?aspectRatio=1x1&width=192&key=3020a40c2356a645b4b4" class="link-preview"
+                                data-lightbox="portfolio" data-title="TLC" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>TLC</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/153_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/153_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="FoodNetwork" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>FoodNetwork</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/91_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/91_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="AFN" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>AFN</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="http://playtv.unifi.com.my:7039/CPS/images/universal/film/logo/201907/20190716/20190716071834181bzk.png" class="img-fluid" alt="Portfolio">
+                            <a href="http://playtv.unifi.com.my:7039/CPS/images/universal/film/logo/201907/20190716/20190716071834181bzk.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="WarnerTV" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>WarnerTV</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://playtv.unifi.com.my:7041/CPS/images/universal/film/logo/202101/20210131/20210131162106997oc1.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://playtv.unifi.com.my:7041/CPS/images/universal/film/logo/202101/20210131/20210131162106997oc1.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="ParamountNetwork" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>ParamountNetwork</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://poster.starhubgo.com/Linear_channels2/403_1920x1080_HTV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://poster.starhubgo.com/Linear_channels2/403_1920x1080_HTV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="CrimeInvestigation" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>CrimeInvestigation</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/HGTV_US_Logo_2015.svg/1200px-HGTV_US_Logo_2015.svg.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/HGTV_US_Logo_2015.svg/1200px-HGTV_US_Logo_2015.svg.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="HGTV" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>HGTV</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/DMAX_Logo_16_05_2011.jpg" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/2/25/DMAX_Logo_16_05_2011.jpg" class="link-preview"
+                                data-lightbox="portfolio" data-title="DMAX" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>DMAX</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item hiburan">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="http://playtv.unifi.com.my:7039/CPS/images/universal/film/logo/201907/20190716/20190716064944437peu.png" class="img-fluid" alt="Portfolio">
+                            <a href="http://playtv.unifi.com.my:7039/CPS/images/universal/film/logo/201907/20190716/20190716064944437peu.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="BBCLifestyle" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>BBCLifestyle</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.googleusercontent.com/-CFTJHU7fEWb7BYEb6Jh9gm1EpetvVGQqtof0Rbh-VQRIznYYKJxCaqv_9HeBcmJmIsp2vOO9JU=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.googleusercontent.com/-CFTJHU7fEWb7BYEb6Jh9gm1EpetvVGQqtof0Rbh-VQRIznYYKJxCaqv_9HeBcmJmIsp2vOO9JU=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="avatar" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>avatar</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.googleusercontent.com/zJtLviP77uKqO_KWlr2b4WHF8CpQ_XG0pF5uofDPAadUPJcQkoy55un_7qlCyikVJePjmFfL1kE=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.googleusercontent.com/zJtLviP77uKqO_KWlr2b4WHF8CpQ_XG0pF5uofDPAadUPJcQkoy55un_7qlCyikVJePjmFfL1kE=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="hitsradio" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>hitsradio</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://aqfadtv.xyz/logos/MolekFM.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://aqfadtv.xyz/logos/MolekFM.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="molekfm" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>molekfm</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://aqfadtv.xyz/logos/Kool101.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://aqfadtv.xyz/logos/Kool101.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="kool101" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>kool101</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/pIwCh-2CmPHvSXoqub8kgfWpTXPwZlZysz8v1uTxNFQlah4RL-zgYPD2bZDkuiTf8nxkKbj1Jw=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/pIwCh-2CmPHvSXoqub8kgfWpTXPwZlZysz8v1uTxNFQlah4RL-zgYPD2bZDkuiTf8nxkKbj1Jw=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="mlbbmy" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>mlbbmy</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/UsF4ibBIyM1TGFNeEdhKrsFGVct-R0PinKNxQh0ZpwKdgrQFBpxTLTlyIP-LmJNBGCLvu1i1wA=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/UsF4ibBIyM1TGFNeEdhKrsFGVct-R0PinKNxQh0ZpwKdgrQFBpxTLTlyIP-LmJNBGCLvu1i1wA=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="mlbbid" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>mlbbid</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/DsH2IVt2wFqAnwwXcn7Aoo10dIkHEjHRNImZ77tS675Bh8s3ZbA0QO2OjZkkfHv82uEwilfkpQ=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/DsH2IVt2wFqAnwwXcn7Aoo10dIkHEjHRNImZ77tS675Bh8s3ZbA0QO2OjZkkfHv82uEwilfkpQ=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="pubgmy" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>pubgmy</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.googleusercontent.com/8Uv2AxeLJ9px5PdeFTbtgC7c96W2S9r1Oqak4Oi7xjCpn8hWWzvTdxYqPqgOSGvs0__H2ZTGMTM=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.googleusercontent.com/8Uv2AxeLJ9px5PdeFTbtgC7c96W2S9r1Oqak4Oi7xjCpn8hWWzvTdxYqPqgOSGvs0__H2ZTGMTM=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="windah" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>windah</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/OvuFGB37aZwh36a2gyM1BFtYo1rZTgRRt7iyIbgL-0bHlJvLv4DymrtCAyNY3kwPHaACkaIVIQ=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/OvuFGB37aZwh36a2gyM1BFtYo1rZTgRRt7iyIbgL-0bHlJvLv4DymrtCAyNY3kwPHaACkaIVIQ=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="pjmask" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>pjmask</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/nVEgcnbTGngVxzKnJOr-T1QKJJPQW_1ZdCkNyrxHohaF2VzYpfZggE9HuLVIHT4wMMSZjJumZQ=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/nVEgcnbTGngVxzKnJOr-T1QKJJPQW_1ZdCkNyrxHohaF2VzYpfZggE9HuLVIHT4wMMSZjJumZQ=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="disneyxd" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>disneyxd</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.googleusercontent.com/dcKjw_NVX4s7l-A_mKkD2Az-KSM5A3rekBLpgPoDnzIxZr0NOHcZUlg2qjB8KKSQG9CrXV0n5Q=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.googleusercontent.com/dcKjw_NVX4s7l-A_mKkD2Az-KSM5A3rekBLpgPoDnzIxZr0NOHcZUlg2qjB8KKSQG9CrXV0n5Q=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="solozclub" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>solozclub</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/fPq7eGV9iqTsd47egSOQkTIIG7S1ACuc_D2aGTDjh70dy0cip87mysdsRpoqPSYQiUbk1WHJWw=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/fPq7eGV9iqTsd47egSOQkTIIG7S1ACuc_D2aGTDjh70dy0cip87mysdsRpoqPSYQiUbk1WHJWw=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="ytsehat" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>ytsehat</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/e-hRjX8JurHebJekLnYwYSGnsAS_fgoIUtVMBnEZiGYLwfudPFb40eIiwi1_XkH0ty_wOjoFEg=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/e-hRjX8JurHebJekLnYwYSGnsAS_fgoIUtVMBnEZiGYLwfudPFb40eIiwi1_XkH0ty_wOjoFEg=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="nickelodeonid" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>nickelodeonid</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/ytc/AIdro_kTK_oX3HnSvlfdmr5TR3-R0whAnOYJwyV2tQ6C3fyGYrM=s176-c-k-c0x00ffffff-no-rj-mo" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/ytc/AIdro_kTK_oX3HnSvlfdmr5TR3-R0whAnOYJwyV2tQ6C3fyGYrM=s176-c-k-c0x00ffffff-no-rj-mo" class="link-preview"
+                                data-lightbox="portfolio" data-title="cocomelon" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>cocomelon</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/ytc/AIdro_kBeq441DDtWo4U2anEY8VrzvvttQSPoCUYSvONcLsaQW0=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/ytc/AIdro_kBeq441DDtWo4U2anEY8VrzvvttQSPoCUYSvONcLsaQW0=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="azharidruz" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>azharidruz</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/Lh4q1pypV5I20bHfg3fS65xhl5gP1Rr9J7GLGR18uWr8zpTcsSECT7_iS5ZYXDv-A4h3-8BZWA=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/Lh4q1pypV5I20bHfg3fS65xhl5gP1Rr9J7GLGR18uWr8zpTcsSECT7_iS5ZYXDv-A4h3-8BZWA=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="beepbeep" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>beepbeep</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/2f1RU8ogcIDHFAe6UkIKCl-nQNOgLoNz0bAzBrFpfhAj2C3CVcFU3MRHrIKaqYmHeqLqdFeyxLg=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/2f1RU8ogcIDHFAe6UkIKCl-nQNOgLoNz0bAzBrFpfhAj2C3CVcFU3MRHrIKaqYmHeqLqdFeyxLg=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="booba" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>booba</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/UcTclRY5rATb4jiyXMLfwVsTDCLSgdETDM6Ebgsj3NKULRMlntJ7mnX43f8HixdSJhmqHSRHfg=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/UcTclRY5rATb4jiyXMLfwVsTDCLSgdETDM6Ebgsj3NKULRMlntJ7mnX43f8HixdSJhmqHSRHfg=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="disneychannel" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>disneychannel</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/jRZlyrtMKB2gM6400At0jxpXj_-9js4BrSspENQSkXGZc8gqgw6_81UDRoKql8-uCHU-G6o64Q=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/jRZlyrtMKB2gM6400At0jxpXj_-9js4BrSspENQSkXGZc8gqgw6_81UDRoKql8-uCHU-G6o64Q=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="didinfriend" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>didinfriend</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/_h0LruFUfluRLAx1VtPbKZ4AfTnm7TkTFMZIuR83dKpnRcOCP8tkw8KIJaHfaj2yKgPffuLu=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/_h0LruFUfluRLAx1VtPbKZ4AfTnm7TkTFMZIuR83dKpnRcOCP8tkw8KIJaHfaj2yKgPffuLu=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="disneyjunior" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>disneyjunior</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/VJ6ID1fc0myMj33ZZpNAod8hb8i4Gkl0HOMl-RibO8ZhVxCvyOV8DDNgnA-68av-h_8Uy9eXkOQ=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/VJ6ID1fc0myMj33ZZpNAod8hb8i4Gkl0HOMl-RibO8ZhVxCvyOV8DDNgnA-68av-h_8Uy9eXkOQ=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="musicastudios" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>musicastudios</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/an_zjs4RtM26IabPpl5DsgcNcVKFoo3CYhH09rJQcirjCO8mbmCEe66uAFYnEM2VlpXpZuUc=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/an_zjs4RtM26IabPpl5DsgcNcVKFoo3CYhH09rJQcirjCO8mbmCEe66uAFYnEM2VlpXpZuUc=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="SonyMusicID" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>SonyMusicID</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/mspho71WrC770mfs4jl16tShx63y1AA6VEBKjkRlf8NCnPssdvTQhYPoQjDDmjCvqUPhWGEkH2A=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/mspho71WrC770mfs4jl16tShx63y1AA6VEBKjkRlf8NCnPssdvTQhYPoQjDDmjCvqUPhWGEkH2A=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="PowerRangersOfficial" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>PowerRangersOfficial</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/god5iM4dDWKWNPcHkhbiayYQCqKe32mUvVkLK6tRnxNXqT5onKJlwmYMb2ZkWiGOPvYIyV4hvA=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/god5iM4dDWKWNPcHkhbiayYQCqKe32mUvVkLK6tRnxNXqT5onKJlwmYMb2ZkWiGOPvYIyV4hvA=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="PeppaPigAsia" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>PeppaPigAsia</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item youtube">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://yt3.ggpht.com/eY2_hVi5ltfgsCZi8dgYQSatyMTkZMPTjgJ8IMPd3V0n7G1p7Gw5nFLnND9_N43c-bskykx4vw=s176-c-k-c0x00ffffff-no-rj" class="img-fluid" alt="Portfolio">
+                            <a href="https://yt3.ggpht.com/eY2_hVi5ltfgsCZi8dgYQSatyMTkZMPTjgJ8IMPd3V0n7G1p7Gw5nFLnND9_N43c-bskykx4vw=s176-c-k-c0x00ffffff-no-rj" class="link-preview"
+                                data-lightbox="portfolio" data-title="lescopaque" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>lescopaque</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/177_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/177_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="BoxOfficeThangathirai" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>BoxOfficeThangathirai</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://poster.starhubgo.com/Linear_channels2/868_1920x1080_HTV.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://poster.starhubgo.com/Linear_channels2/868_1920x1080_HTV.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="CelestialMovies" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>CelestialMovies</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/187_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/187_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="CCM" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>CCM</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/391_144.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/391_144.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="HITSMovies" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>HITSMovies</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/BOO_v1.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/BOO_v1.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="BOO" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>BOO</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="http://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch115_170_122" class="img-fluid" alt="Portfolio">
+                            <a href="http://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch115_170_122" class="link-preview"
+                                data-lightbox="portfolio" data-title="HBO" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>HBO</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="http://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch113_170_122" class="img-fluid" alt="Portfolio">
+                            <a href="http://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch113_170_122" class="link-preview"
+                                data-lightbox="portfolio" data-title="Cinemax" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>Cinemax</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://linear-poster.astro.com.my/prod/logo/ShowcaseMovies.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://linear-poster.astro.com.my/prod/logo/ShowcaseMovies.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="ShowcaseMovies" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>ShowcaseMovies</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="http://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch112_170_122" class="img-fluid" alt="Portfolio">
+                            <a href="http://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch112_170_122" class="link-preview"
+                                data-lightbox="portfolio" data-title="HBOFamily" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>HBOFamily</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="http://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch111_170_122" class="img-fluid" alt="Portfolio">
+                            <a href="http://images.now-tv.com/shares/channelPreview/img/en_hk/color/ch111_170_122" class="link-preview"
+                                data-lightbox="portfolio" data-title="HBOHits" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>HBOHits</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Tvn_kr.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/0/08/Tvn_kr.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="tvNMovies" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>tvNMovies</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://aqfadtv.xyz/logos/Galaxy.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://aqfadtv.xyz/logos/Galaxy.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="GALAXY" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>GALAXY</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://aqfadtv.xyz/logos/GalaxyPremium.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://aqfadtv.xyz/logos/GalaxyPremium.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="GALAXYPremium" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>GALAXYPremium</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://raw.githubusercontent.com/marginfull/logo/main/sonypixhd.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://raw.githubusercontent.com/marginfull/logo/main/sonypixhd.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="sonypixhd" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>sonypixhd</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item movie">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/STAR_Movies_logo.svg/1200px-STAR_Movies_logo.svg.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/STAR_Movies_logo.svg/1200px-STAR_Movies_logo.svg.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="starmovies" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>starmovies</h4>
+                        </div>
+                    </div>
+                </div>
 
-  </script>
-  <script>
+                <div class="col-lg-4 col-md-6 portfolio-item unifx">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://playtv.unifi.com.my:7046/CPS/images/universal/film/logo/201907/20190716/201907160659062937ij.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://playtv.unifi.com.my:7046/CPS/images/universal/film/logo/201907/20190716/201907160659062937ij.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="141.unifi" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>141.unifi</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item unifx">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://playtv.unifi.com.my:7046/CPS/images/universal/film/logo/201907/20190716/20190716062504007e6f.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://playtv.unifi.com.my:7046/CPS/images/universal/film/logo/201907/20190716/20190716062504007e6f.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="113.unifi" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>113.unifi</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item unifx">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYU0aNps7eo4RbmOmYIYw-ZybW4E-8SbZx_A&s" class="img-fluid" alt="Portfolio">
+                            <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYU0aNps7eo4RbmOmYIYw-ZybW4E-8SbZx_A&s" class="link-preview"
+                                data-lightbox="portfolio" data-title="411.unifi" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>411.unifi</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item unifx">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://playtv.unifi.com.my:7048/CPS/images/universal/film/logo/202204/20220422/2022042207284940668e.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://playtv.unifi.com.my:7048/CPS/images/universal/film/logo/202204/20220422/2022042207284940668e.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="120.unifi" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>120.unifi</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item unifx">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://playtv.unifi.com.my:7047/CPS/images/universal/film/logo/201907/20190716/20190716074123890vav.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://playtv.unifi.com.my:7047/CPS/images/universal/film/logo/201907/20190716/20190716074123890vav.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="128.unifi" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>128.unifi</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item unifx">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://www.porticomedia.com/sites/default/files/styles/channel_logo_h70/public/logos/230815_RockAction_%E5%AE%98%E7%B6%B2%E5%85%A8%E5%BD%A9Logo_w600-x-h300px.jpg?itok=xLw-qqfl" class="img-fluid" alt="Portfolio">
+                            <a href="https://www.porticomedia.com/sites/default/files/styles/channel_logo_h70/public/logos/230815_RockAction_%E5%AE%98%E7%B6%B2%E5%85%A8%E5%BD%A9Logo_w600-x-h300px.jpg?itok=xLw-qqfl" class="link-preview"
+                                data-lightbox="portfolio" data-title="474.unifi" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>474.unifi</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item unifx">
+                    <div class="portfolio-wrap">
+                        <figure>
+                            <img src="https://playtv.unifi.com.my:7046/CPS/images/universal/film/logo/202109/20210902/20210902163927011u1k.png" class="img-fluid" alt="Portfolio">
+                            <a href="https://playtv.unifi.com.my:7046/CPS/images/universal/film/logo/202109/20210902/20210902163927011u1k.png" class="link-preview"
+                                data-lightbox="portfolio" data-title="473.unifi" title="Preview"><i class="ion-md-eye"></i></a>
+                            <a href="" class="link-details" title="More Details"><i class="ion-md-open"></i></a>
+                        </figure>
+                
+                        <div class="portfolio-info">
+                            <h4>473.unifi</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                             
 
-  </script>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Section End -->
+
+    <!-- Testimonials Section Start -->
+    <section class="testimonials">
+        <div class="container">
+            <header class="section-header">
+                <h3 class="section-title">Testimonials</h3>
+                <p>
+                    Terima kasih telah support Samflix, Kami sedaya upaya memberi komitmen untuk menaik taraf dari masa ke semasa, Feedback anda sangat kami hargai.
+                </p>
+            </header>
+
+            <div class="owl-carousel testimonials-carousel">
+                <div class="testimonial-item row align-items-center">
+                    <div class="col-sm-3">
+                        <div class="testimonial-img">
+                            <img src="https://w7.pngwing.com/pngs/691/765/png-transparent-primary-profile-illustration-computer-icons-person-anonymous-miscellaneous-silhouette-black-thumbnail.png" alt="Testimonial image">
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="testimonial-text">
+                            <h3>Nana</h3>
+                            <h4>Housewife</h4>
+                            <p>
+                                Samflix sangat membantu, hubby dah tak perlu langgan mahal mahal, senang saya nak layan drama petang petang.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item row align-items-center">
+                    <div class="col-sm-3">
+                        <div class="testimonial-img">
+                            <img src="https://w7.pngwing.com/pngs/691/765/png-transparent-primary-profile-illustration-computer-icons-person-anonymous-miscellaneous-silhouette-black-thumbnail.png" alt="Testimonial image">
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="testimonial-text">
+                            <h3>Hafiy</h3>
+                            <h4>Student</h4>
+                            <p>
+                                Service mantap, senyum je tengok bola walaupun malaysia kalah hahahah.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item row align-items-center">
+                    <div class="col-sm-3">
+                        <div class="testimonial-img">
+                            <img src="https://w7.pngwing.com/pngs/691/765/png-transparent-primary-profile-illustration-computer-icons-person-anonymous-miscellaneous-silhouette-black-thumbnail.png" alt="Testimonial image">
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="testimonial-text">
+                            <h3>Afnan</h3>
+                            <h4>Student</h4>
+                            <p>
+                                Saya minat layan movie, samflix laju update movie / series baru . Servis mantapppp.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section End -->
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; 2024 SAMFLIX. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <a href="#" class="back-to-top"><i class="ion-md-arrow-dropup"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://syfqsamvpn.github.io/vendor/jquery/jquery.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/jquery/jquery-migrate.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/easing/easing.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/superfish/hoverIntent.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/superfish/superfish.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/waypoints/waypoints.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/counterup/counterup.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="https://syfqsamvpn.github.io/vendor/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Main Javascript File -->
+    <script src="https://syfqsamvpn.github.io/samflix/main.js"></script>
+
 </body>
 
 </html>
