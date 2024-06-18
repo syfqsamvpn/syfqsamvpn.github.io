@@ -47,7 +47,7 @@
         const response = await fetch(`https://player.samhub.my.id/samflix_data/${category_id}/${channel_id}`);
         const data = await response.json();
 
-        const manifestUri = data.link;
+        const manifestUri = data.link || "https://raw.githubusercontent.com/syfqsamvpn/iptv/main/m3u8/samflix_detail/samflix_detail.m3u8";
         const keyId = data.keyID;
         const key = data.keyValue;
 
