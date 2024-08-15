@@ -5,7 +5,7 @@
     <title>IPTV WEB | samsfx</title>
     <link rel="icon" href="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico" type="image/x-icon">
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="referrer" content="no-referrer" />
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.ui.min.js'
         crossorigin='anonymous'></script>
@@ -55,9 +55,7 @@
             window.player = player;
             window.ui = ui;
             player.setTextTrackVisibility(true);
-            player.getNetworkingEngine().registerRequestFilter((type, request) => {
-                request.headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Liverome/65.0.3325.181 Safari/537.36';
-            });
+
             player.configure({
                 drm: {
                     "clearKeys": clearKeys,
