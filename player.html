@@ -56,7 +56,21 @@
             window.ui = ui;
             player.setTextTrackVisibility(true);
 
-            player.configure
+            player.configure({
+                drm: {
+                    "clearKeys": clearKeys,
+                },
+                preferredTextLanguage: 'ms',
+
+                abr: {
+                    defaultBandwidthEstimate: 7578,
+                    enabled: true,
+                    restrictions: {
+                        minHeight: 359,
+                        maxHeight: 1080
+                    }
+                },
+            });
             player.addEventListener('error', onPlayerErrorEvent);
             controls.addEventListener('error', onUIErrorEvent);
             try {
