@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,6 +33,7 @@
             from {
                 text-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.7);
             }
+
             to {
                 text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 215, 0, 0.8);
             }
@@ -119,8 +121,15 @@
             font-size: 1.2em;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>SAMVIU - Freemium VIU</h1>
@@ -133,6 +142,7 @@
                 <p class="description" id="description"></p>
             </div>
             <div class="episodes" id="episodes"></div>
+            <p class="error-message" id="error-message"></p>
         </div>
     </div>
 
@@ -141,7 +151,12 @@
         const url = params.get('url') || "https://raw.githubusercontent.com/syfqsamvpn/iptv/main/m3u8/samflix_detail/samflix_detail.m3u8";
 
         fetch(url)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 document.getElementById('background').style.backgroundImage = `url(${data.poster})`;
 
@@ -154,18 +169,30 @@
                     episodeDiv.classList.add('episode');
 
                     episodeDiv.innerHTML = `
-                        <img src="${episode.cover_image_url}" alt="Episode Cover">
+                        <img src="${episode.cover_image_url}" alt="Episode Cover for ${episode.title}">
                         <h3>Episode ${episode.episode_number}</h3>
                         <p>${episode.synopsis}</p>
                         <a href="${episode.stream}" style="color: yellow; text-decoration: none;">Watch Now</a>
+                        <button onclick="copyToClipboard('${episode.stream}')" style="background: none; border: 1px solid yellow; color: yellow; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Copy Link</button>
                     `;
                     episodesContainer.appendChild(episodeDiv);
                 });
             })
             .catch(error => {
                 console.error('Error fetching the JSON data:', error);
-                document.getElementById('app').innerHTML = '<p>Error loading data. Please try again later.</p>';
+                document.getElementById('error-message').textContent = 'Error loading data. Please try again later.';
             });
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    alert('Link copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Error copying text: ', err);
+                });
+        }
     </script>
 </body>
+
 </html>
