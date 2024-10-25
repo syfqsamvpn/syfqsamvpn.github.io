@@ -7,7 +7,7 @@ const devtoolsOpen = () => {
     return end - start > 100;
 };
 
-const redirectUrl = 'https://syfqsamvpn.github.io/'; 
+const redirectUrl = 'https://shopee.com.my/samsfx.tech'; 
 
 setInterval(() => {
     if (devtoolsOpen()) {
