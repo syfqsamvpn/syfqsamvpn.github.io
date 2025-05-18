@@ -7,16 +7,13 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta name="referrer" content="no-referrer" />
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.ui.min.js'
-        crossorigin='anonymous'></script>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/controls.min.css'
-        crossorigin='anonymous' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.ui.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/controls.min.css" crossorigin="anonymous" />
+    
     <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet">
-    <center><b>
-            <p style="color:white; opacity:0.27;">SAMFLIX
-        </b></p>
-    </center>
-    <script src="https://github.com/videojs/mux.js/releases/download/v6.3.0/mux.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
     <style>
         div a img {
             visibility: hidden;
@@ -26,54 +23,84 @@
             margin: 0;
             background-color: black;
         }
-    </style>
-    <script src="https://syfqsamvpn.github.io/static/devtool.js"></script>
 
+        .watermark {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 1em;
+            opacity: 0.27;
+            color: white;
+            font-weight: bold;
+        }
+
+        .shaka-text-container {
+            bottom: 5%;
+            left: 5%;
+            right: 5%;
+        }
+        .shaka-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5em;
+            line-height: 1.2;
+            font-weight: 400;
+            color: #FFFFFF;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 0.2em 0.4em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            border-radius: 0.2em;
+        }
+    </style>
+
+    <script src="https://syfqsamvpn.github.io/static/devtool.js"></script>
 </head>
 
 <body>
-    <div class="youtube-theme" data-shaka-player-container
-        style='position:absolute;z-index: -1;top: 0;left: 0;width: 100%; height: 100%;object-fit: cover;'><video
-            autoplay data-shaka-player poster="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico" id='video'
-            style='width:100%;height:100%;'></video>
-    </div>
-    <script>
+    <div class="watermark">SAMFLIX</div>
 
+    <div class="youtube-theme" data-shaka-player-container
+         style="position:absolute; z-index: -1; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+        <video autoplay
+               data-shaka-player
+               poster="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico"
+               id="video"
+               style="width:100%; height:100%;">
+        </video>
+    </div>
+
+    <script>
         const params = new URLSearchParams(window.location.search);
-        const manifestUri = params.get('manifestUri') || "https://raw.githubusercontent.com/syfqsamvpn/iptv/main/m3u8/samflix_detail/samflix_detail.m3u8";
+        const manifestUri = params.get('manifestUri') ||
+            "https://raw.githubusercontent.com/syfqsamvpn/iptv/main/m3u8/samflix_detail/samflix_detail.m3u8";
         const keyId = params.get('keyId');
         const key = params.get('key');
-
-        const clearKeys = {
-            [keyId]: key
-        };
+        const clearKeys = { [keyId]: key };
 
         async function init() {
             const video = document.getElementById('video');
-            const ui = video['ui'];
+            const ui = video.ui;
             const controls = ui.getControls();
             const player = controls.getPlayer();
+
             window.player = player;
             window.ui = ui;
+
             player.setTextTrackVisibility(true);
 
             player.configure({
-                drm: {
-                    "clearKeys": clearKeys,
-                },
+                drm: { clearKeys },
                 preferredTextLanguage: 'ms',
-
                 abr: {
                     defaultBandwidthEstimate: 7578,
                     enabled: true,
-                    restrictions: {
-                        minHeight: 359,
-                        maxHeight: 1080
-                    }
-                },
+                    restrictions: { minHeight: 359, maxHeight: 1080 }
+                }
             });
+
+            // Error handling
             player.addEventListener('error', onPlayerErrorEvent);
             controls.addEventListener('error', onUIErrorEvent);
+
             try {
                 await player.load(manifestUri);
                 console.log('The video has now been loaded!');
@@ -82,34 +109,26 @@
             }
         }
 
-        function onPlayerErrorEvent(errorEvent) {
-            onPlayerError(errorEvent.detail);
+        function onPlayerErrorEvent(event) {
+            onPlayerError(event.detail);
         }
-
+        function onUIErrorEvent(event) {
+            onPlayerError(event.detail);
+        }
         function onPlayerError(error) {
             console.error('Error code', error.code, 'object', error);
         }
-
-        function onUIErrorEvent(errorEvent) {
-            onPlayerError(errorEvent.detail);
-        }
-
-        function initFailed(errorEvent) {
+        function initFailed() {
             console.error('Unable to load the UI library!');
         }
+
         document.addEventListener('shaka-ui-loaded', init);
         document.addEventListener('shaka-ui-load-failed', initFailed);
 
         function openShopeeTab() {
-            const shopeeURL = "https://shopee.com.my/samsfx.tech";
-            window.open(shopeeURL, '_blank');
+            window.open("https://shopee.com.my/samsfx.tech", '_blank');
         }
-
         openShopeeTab();
-
-    </script>
-    <script>
-
     </script>
 </body>
 
