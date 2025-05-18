@@ -41,7 +41,8 @@
 
         video::cue {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-size: 1.6em;
+            font-size: 1.8em;          /* bumped up from 1.6em */
+            font-weight: bold;         /* make text bold */
             color: #FFFFFF;
             -webkit-text-stroke: 0.08em #000;
             text-shadow:
@@ -49,6 +50,12 @@
                 -0.05em -0.05em 0.1em rgba(0,0,0,0.8);
             background: none;
             line-height: 1.4;
+        }
+
+        @media only screen and (max-width: 600px) {
+            video::cue {
+                font-size: 2.2em;
+            }
         }
     </style>
 
