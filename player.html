@@ -4,51 +4,47 @@
 <head>
     <title>IPTV WEB | samsfx</title>
     <link rel="icon" href="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico" type="image/x-icon">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="no-referrer" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.ui.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/controls.min.css" crossorigin="anonymous" />
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.ui.min.js"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/controls.min.css"
+        crossorigin="anonymous" />
+
     <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-
     <style>
-        div a img {
-            visibility: hidden;
-        }
-
         body {
             margin: 0;
             background-color: black;
         }
-
-        .watermark {
+        div a img {
+            visibility: hidden;
+        }
+        .page-title {
             position: absolute;
             width: 100%;
             text-align: center;
-            top: 1em;
-            opacity: 0.27;
+            top: 10px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1rem;
             color: white;
-            font-weight: bold;
+            opacity: 0.27;
+            pointer-events: none;
+            user-select: none;
         }
-
-        .shaka-text-container {
-            bottom: 5%;
-            left: 5%;
-            right: 5%;
-        }
-        .shaka-text {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.5em;
-            line-height: 1.2;
-            font-weight: 400;
-            color: #FFFFFF;
-            background-color: rgba(0, 0, 0, 0.6);
+        video::cue {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1.6em;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.6);
             padding: 0.2em 0.4em;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
             border-radius: 0.2em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        video::cue {
+            line-height: 1.4;
         }
     </style>
 
@@ -56,16 +52,15 @@
 </head>
 
 <body>
-    <div class="watermark">SAMFLIX</div>
+    <div class="page-title">SAMFLIX</div>
 
     <div class="youtube-theme" data-shaka-player-container
-         style="position:absolute; z-index: -1; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+        style="position:absolute; z-index:-1; top:0; left:0; width:100%; height:100%; object-fit:cover;">
         <video autoplay
-               data-shaka-player
-               poster="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico"
-               id="video"
-               style="width:100%; height:100%;">
-        </video>
+            data-shaka-player
+            poster="https://github.com/syfqsamvpn/iptv/raw/main/logo/samvpn.ico"
+            id="video"
+            style="width:100%; height:100%;"></video>
     </div>
 
     <script>
@@ -74,19 +69,18 @@
             "https://raw.githubusercontent.com/syfqsamvpn/iptv/main/m3u8/samflix_detail/samflix_detail.m3u8";
         const keyId = params.get('keyId');
         const key = params.get('key');
+
         const clearKeys = { [keyId]: key };
 
         async function init() {
             const video = document.getElementById('video');
-            const ui = video.ui;
+            const ui = video['ui'];
             const controls = ui.getControls();
             const player = controls.getPlayer();
-
             window.player = player;
             window.ui = ui;
 
             player.setTextTrackVisibility(true);
-
             player.configure({
                 drm: { clearKeys },
                 preferredTextLanguage: 'ms',
@@ -97,38 +91,27 @@
                 }
             });
 
-            // Error handling
-            player.addEventListener('error', onPlayerErrorEvent);
-            controls.addEventListener('error', onUIErrorEvent);
+            player.addEventListener('error', e => console.error('Player error', e.detail));
+            controls.addEventListener('error', e => console.error('UI error', e.detail));
 
             try {
                 await player.load(manifestUri);
-                console.log('The video has now been loaded!');
+                console.log('Video loaded successfully.');
             } catch (error) {
-                onPlayerError(error);
+                console.error('Error loading video', error);
             }
         }
 
-        function onPlayerErrorEvent(event) {
-            onPlayerError(event.detail);
-        }
-        function onUIErrorEvent(event) {
-            onPlayerError(event.detail);
-        }
-        function onPlayerError(error) {
-            console.error('Error code', error.code, 'object', error);
-        }
         function initFailed() {
-            console.error('Unable to load the UI library!');
+            console.error('Unable to load the Shaka UI library.');
         }
 
         document.addEventListener('shaka-ui-loaded', init);
         document.addEventListener('shaka-ui-load-failed', initFailed);
 
-        function openShopeeTab() {
+        (function openShopeeTab() {
             window.open("https://shopee.com.my/samsfx.tech", '_blank');
-        }
-        openShopeeTab();
+        })();
     </script>
 </body>
 
